@@ -2,7 +2,7 @@ function [name, price, purchase, date, endDate] = inputData()
 
 
 num = input('Enter the number of stocks you would like to see: ');
-
+price = zeros(num,1);
 name = zeros(num,4);
 purchase = zeros(num,1);
 date = zeros(num,11);
@@ -15,6 +15,8 @@ for n = 1:num
     else
        name(n,:) = str(:); 
     end
+    
+    price(n,1) = input('Enter your purchased price: $');
     
     
     y = input('Enter your purchased year (ex. 97): ');
