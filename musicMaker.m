@@ -1,5 +1,7 @@
 function  musicMaker(data, purchasePrices)
 
+import SoundVolume.*
+
 %this reads the audio files and puts them into matrices 
 %(y or x) and a frequency (Fy or Fx).
 [y1,Fy1] = audioread('Major1.m4a');
@@ -47,7 +49,7 @@ priceTotalDifference = maxPrice - minPrice;
 %volume and the loundest sound is 3.5 times the original volume.
 ampTotal = 1.5-.5;
 
-for j = 1:size(data,1)
+for j = 1:size(data,1)-1
     p = data(j,2,1);
     priceDifference = p - purchasePrices(1);
     priceAbsolute = abs(priceDifference); 
@@ -63,15 +65,42 @@ for j = 1:size(data,1)
     %ampMultiplier = 1;
     if priceDifference >= 0
         randInt = randi(4); %the major notes
+        %SoundVolume(ampAdd);
         sound(tone(:,:,randInt)*ampMultiplier,frequency(:,randInt))
         
         %pause at .5 creates 50% overlap, 1 no overlap, over 1 a gap
-        pause(.5)
+        pause(.7)
     else
         randInt = randi([5,8]); %the minor notes
+        %SoundVolume(ampAdd);
         sound(tone(:,:,randInt)*ampMultiplier,frequency(:,randInt))
-        pause(.5)
+        pause(.7)
     end
 end
-
+ %flourish at the end!
+    p = data(size(data,1),2,1);
+    priceDifference = p - purchasePrices(1);
+    priceAbsolute = abs(priceDifference); 
+    ampPercent = priceAbsolute/ priceTotalDifference;
+    ampAdd = ampPercent*ampTotal;
+    ampMultiplier = ampAdd + .5;
+    if priceDifference >= 0
+        %ascending major
+        sound(tone(:,:,1)*ampMultiplier,frequency(:,1))
+        pause(.1)
+        sound(tone(:,:,2)*ampMultiplier,frequency(:,2))
+        pause(.1)
+        sound(tone(:,:,3)*ampMultiplier,frequency(:,3))
+        pause(.1)
+        sound(tone(:,:,4)*ampMultiplier,frequency(:,4))
+    else
+        %descending minor
+        sound(tone(:,:,8)*ampMultiplier,frequency(:,8))
+        pause(.1)
+        sound(tone(:,:,7)*ampMultiplier,frequency(:,7))
+        pause(.1)
+        sound(tone(:,:,6)*ampMultiplier,frequency(:,6))
+        pause(.1)
+        sound(tone(:,:,5)*ampMultiplier,frequency(:,5))
+    end
 
