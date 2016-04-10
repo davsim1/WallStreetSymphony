@@ -67,7 +67,7 @@ for j = 1:size(data,1)
         %pause at .5 creates 50% overlap, 1 no overlap, over 1 a gap
         pause(.5)
     else
-        randInt = ranti([5,8]); %the minor notes
+        randInt = randi([5,8]); %the minor notes
         sound(tone(:,:,randInt)*ampMultiplier,frequency(1,randInt))
         pause(.5)
     end
