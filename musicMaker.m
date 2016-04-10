@@ -1,8 +1,7 @@
 function  musicMaker(data, purchasePrices)
 
-%
-this reads the audio files and puts them into matrices (y or x) and a frequency
-%(Fy or Fx).
+%this reads the audio files and puts them into matrices 
+%(y or x) and a frequency (Fy or Fx).
 [y1,Fy1] = audioread('Major1.m4a');
 [y2,Fy2] = audioread('Major2.m4a');
 [y3,Fy3] = audioread('Major3.m4a');
