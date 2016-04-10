@@ -6,6 +6,8 @@
 %fetches data about the given stocks
 function [stockNames, data] = retStocks(stockNames, startDate, endDate)
 
+stockNames = char(stockNames);
+
 %setting the period for fetch
 if endDate(1,1) - startDate(1,1) > 5
     per = 'v';
@@ -21,7 +23,7 @@ end
 c = yahoo;
 startD = datetime(startDate(1,1),startDate(1,2),startDate(1,3));
 endD = datetime(endDate(1,1),endDate(1,2),endDate(1,3));
-fetched = fetch(c, stockNames, 'close', startD, endD, per);
+fetched = fetch(c, stockNames(1,:), 'close', startD, endD, per);
 data = zeros(size(fetched, 1),2,size(stockNames, 1));
 
 %loops to fetch each stock and add to data
