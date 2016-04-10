@@ -45,7 +45,7 @@ priceTotalDifference = maxPrice - minPrice;
 
 %the total difference in volume. The smallest sound is 1/8th the original
 %volume and the loundest sound is 3.5 times the original volume.
-ampTotal = 3.5-.125;
+ampTotal = 1.5-.5;
 
 for j = 1:size(data,1)
     p = data(j,2,1);
@@ -59,16 +59,17 @@ for j = 1:size(data,1)
     %finds out how much we have to add to the smallest sound to get the
     %volume multiplier. 
     ampAdd = ampPercent*ampTotal;
-    ampMultiplier = ampAdd + .125;
+    ampMultiplier = ampAdd + .5;
+    %ampMultiplier = 1;
     if priceDifference >= 0
         randInt = randi(4); %the major notes
-        sound(tone(:,:,randInt)*ampMultiplier,frequency(1,randInt))
+        sound(tone(:,:,randInt)*ampMultiplier,frequency(:,randInt))
         
         %pause at .5 creates 50% overlap, 1 no overlap, over 1 a gap
         pause(.5)
     else
-        randInt = ranti([5,8]); %the minor notes
-        sound(tone(:,:,randInt)*ampMultiplier,frequency(1,randInt))
+        randInt = randi([5,8]); %the minor notes
+        sound(tone(:,:,randInt)*ampMultiplier,frequency(:,randInt))
         pause(.5)
     end
 end
