@@ -2,12 +2,12 @@ clc
 import inputData.*
 import plot.*
 import retStocks.*
-%input musicMaker.*
+import musicMaker.*
 
 [names, prices, purchasedPrices, startDates, endDates] = inputData();
 [names, data] = retStocks(names, startDates, endDates);
-%plotStocks(names, data, purchasedPrices)
-%makeMusic(data,purchasedPrices)
+plotStocks(names, data, purchasedPrices);
+musicMaker(data,purchasedPrices);
 
 
 
