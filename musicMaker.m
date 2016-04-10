@@ -15,7 +15,8 @@ import SoundVolume.*
 
 %puts the matrices (y or x) into a matrix of matrices, the first 4 are the
 %major notes and the last four are the minor notes
-tone = zeros(44156,2,8);
+%NOTE ON MAC THE NUMBER IS 44156 ON WINDOWS ITS 47104
+tone = zeros(47104,2,8);
 tone(:,:,1) = y1;
 tone(:,:,2) = y2;
 tone(:,:,3) = y3;
