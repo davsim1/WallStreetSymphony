@@ -1,7 +1,5 @@
 function  musicMaker(data, purchasePrices)
 
-import SoundVolume.*
-
 %this reads the audio files and puts them into matrices 
 %(y or x) and a frequency (Fy or Fx).
 [y1,Fy1] = audioread('Major1.m4a');
