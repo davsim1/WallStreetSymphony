@@ -1,4 +1,5 @@
 function  musicMaker(data, purchasePrices)
+import SoundVolume.*;
 
 %this reads the audio files and puts them into matrices 
 %(y or x) and a frequency (Fy or Fx).
@@ -54,22 +55,26 @@ for j = 1:size(data,1)
     
     % what percentage the price difference is of the total corresponds to
     % the percentage of the total volume for the sound
-    ampPercent = priceAbsolute/ priceTotalDifference; 
+    ampPercent = (priceAbsolute/ priceTotalDifference)/2; 
     
     %finds out how much we have to add to the smallest sound to get the
     %volume multiplier. 
-    ampAdd = ampPercent*ampTotal;
-    ampMultiplier = ampAdd + .5;
+    ampAdd = ampPercent + .25;
+    
+    %ampMultiplier = ampAdd + .5;
     %ampMultiplier = 1;
     if priceDifference >= 0
         randInt = randi(4); %the major notes
-        sound(tone(:,:,randInt)*ampMultiplier,frequency(:,randInt))
+        % juliet .25 - .75
+        SoundVolume(ampAdd);
+        sound(tone(:,:,randInt),frequency(:,randInt))
         
         %pause at .5 creates 50% overlap, 1 no overlap, over 1 a gap
         pause(.5)
     else
         randInt = randi([5,8]); %the minor notes
-        sound(tone(:,:,randInt)*ampMultiplier,frequency(:,randInt))
+        SoundVolume(ampAdd);
+        sound(tone(:,:,randInt),frequency(:,randInt))
         pause(.5)
     end
 end
