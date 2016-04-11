@@ -1,3 +1,5 @@
+Thank you so much to MLH (https://mlh.io) for awarding us Best Beginner Hack at Bitcamp 2016!  See the submission at: http://devpost.com/software/wallstreetsymphony
+
 Authors:
 David Simmons (GitHub: davsim1)
 Evan Kerekanich (GitHub: evanjk)
@@ -7,10 +9,13 @@ Josephine Chow (GitHub: JosephineChow)
 Usage:
 - Clone this repository
 - Add all files to your MatLab path
-- Run main.m through MatLab and follow the instructions
+- Run main.m through MatLab and follow the input instructions
+
+Output:
+A graph of your inputted stock price versus time with an orange line for the price you purchased the stock at. Music representing gains and losses. 
 
 What it does
-Our MatLab project takes input, plots your stock's price versus time, and plays music to represent the graph's relation to your stock. If the stock price is above your purchased price, chords in C major (with octave) play to represent gains. If the stock price is below your purchased price, chords in E minor 7 play to represent loses. Amplitude (loudness) changes to show you how far away from your purchased price the data is. Usage: Run our MatLab file main.m to input a stock symbol (ex: GOOG), the price you purchased your stock at, the date you purchased your stock at, the start date for the graph, and the end date for the graph.
+Our MatLab project takes input, plots your stock's price versus time, and plays music to represent the graph's relation to your stock. If the stock price is above your purchased price, chords in C major (with octave) play to represent gains. If the stock price is below your purchased price, chords in E minor 7 play to represent losses. Amplitude (loudness) changes to show you how far away from your purchased price the data is. Usage: Run our MatLab file main.m to input a stock symbol (ex: GOOG), the price you purchased your stock at, the date you purchased your stock at, the start date for the graph, and the end date for the graph.
 
 How we built it
 Our team of four, Evan, Juliet, Josephine, and David, collaborated with Git through Atlassian Sourcetree and GitHub to implement our project with a series of MatLab functions. We used Yahoo Finance through the Matlab fetch command to retrieve the stock data. Juliet created chords and notes in MusicMaker.
